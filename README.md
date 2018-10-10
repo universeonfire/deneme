@@ -9,12 +9,12 @@
 
 ```ruby
 def met
-	puts "lalala"
+puts "lalala"
 end
 ```
 ```python
 def pmet():
-	print("lololo")
+print("lololo")
 
 ```
 
