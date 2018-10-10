@@ -1,24 +1,20 @@
-# README
+# Beni Oku 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> bir takım denemeler
 
-Things you may want to cover:
+### başlık
+- asdasdasdasd
 
-* Ruby version
+### kod
 
-* System dependencies
+```ruby
+def met
+	puts "lalala"
+end
+```
+```python
+def pmet():
+	print("lololo")
 
-* Configuration
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
