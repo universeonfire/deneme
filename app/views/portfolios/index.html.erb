@@ -3,5 +3,6 @@
 <p1><%= x.title %></p1>
 <p><%= x.subtitle %></p>
 <p><%= x.body  %></p>
-<p><%= image_tag x.thumb_image %></p>
+<%= image_tag x.thumb_image unless x.thumb_image.nil? %>
+<p></p>
 <% end %>
