@@ -1,6 +1,6 @@
 <h1>Port items</h1>
 <!--<a href="portfolios/new">Yeni Oluştur</a> 
-	<a href="portfolios/<%=portfolio_item.id%>/edit">Düzenle</a> 
+	<a href="portfolios/<%#=portfolio_item.id%>/edit">Düzenle</a> 
 bu html kullanarak link atma
 alttakiler rails kodu ile link atma
 rake routes yaptığımızda bize default tanımlı gösterdiği edit ve new yolları
@@ -12,7 +12,7 @@ edit kodu yazarken id gerekir edit_portfolio_path(x)
 
 <p></p>
 <% @portfolio_items.each do |x| %>
-	<p1><%= x.title %></p1>
+	<h2><%= link_to x.title ,portfolio_path(x) %></h2>
 	<p><%= x.subtitle %></p>
 	<p><%= x.body  %></p>
 	<%= image_tag x.thumb_image unless x.thumb_image.nil? %>
