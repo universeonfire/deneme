@@ -1,8 +1,21 @@
 <h1>Port items</h1>
-<% @portfolio_items.each do |x| %>
-<p1><%= x.title %></p1>
-<p><%= x.subtitle %></p>
-<p><%= x.body  %></p>
-<%= image_tag x.thumb_image unless x.thumb_image.nil? %>
+<!--<a href="portfolios/new">Yeni Oluştur</a> 
+	<a href="portfolios/<%=portfolio_item.id%>/edit">Düzenle</a> 
+bu html kullanarak link atma
+alttakiler rails kodu ile link atma
+rake routes yaptığımızda bize default tanımlı gösterdiği edit ve new yolları
+path eklersen new_portfolio_path gibi yolu ekler portfolios/new
+new_portfolio yazılırsa URL ekler http://localhost:3000/portfolios/new 
+edit kodu yazarken id gerekir edit_portfolio_path(x)
+-->
+<%= link_to "Yeni Oluştur",new_portfolio_path %>
+
 <p></p>
+<% @portfolio_items.each do |x| %>
+	<p1><%= x.title %></p1>
+	<p><%= x.subtitle %></p>
+	<p><%= x.body  %></p>
+	<%= image_tag x.thumb_image unless x.thumb_image.nil? %>
+	<%= link_to "Düzenle",edit_portfolio_path(x) %>
+	<p></p>
 <% end %>
