@@ -15,10 +15,7 @@ class PortfoliosController < ApplicationController
 	def show
 		@portfolio_item = Portfolio.find(params[:id])	
 		respond_to do |format|
-			 
-				 
 			format.html{render :show}
-			 
 		end
 	end
 
@@ -43,5 +40,13 @@ class PortfoliosController < ApplicationController
 			end
 		end
 	end
+
+	def destroy
+	    @portfolio_item = Portfolio.find(params[:id])
+	    @portfolio_item.destroy
+	    respond_to do |format|
+	      format.html { redirect_to portfolios_url, notice: 'Port silindi.' }
+	    end
+  	end
 	 
 end
