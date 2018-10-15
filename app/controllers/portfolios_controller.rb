@@ -1,6 +1,16 @@
 class PortfoliosController < ApplicationController
 	def index
+		#tüm itemleri getir
 		@portfolio_items = Portfolio.all
+		# portfolio.rb dosyasında tanımlanmış sorgu tiplerinden çağırmak
+		#@portfolio_items = Portfolio.angular
+		# diğer yol
+		#@portfolio_items = Portfolio.ruby_on_rails_portfolio_items
+
+	end
+	# farklı bir sayfaya yönledirme yapmak
+	def angular
+		@angular_portfolio_items = Portfolio.angular
 	end
 
 	def new
