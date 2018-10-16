@@ -32,7 +32,7 @@ end
 5.times do |x|
 	Skill.create!(
 		title: "Rails #{x}",
-		percent_utilizzed: 10
+		percent_utilized: 10
 	)
 end
 8.times do |x|
@@ -63,3 +63,12 @@ end
 		thumb_image:"https://via.placeholder.com/350x150"
 	)
  end
+3.times do |x|
+	 Portfolio.last.technologies.create!(
+		name: "Technology #{x}",
+	
+
+
+
+		)
+end
