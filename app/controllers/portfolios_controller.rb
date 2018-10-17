@@ -1,11 +1,22 @@
 class PortfoliosController < ApplicationController
 	def index
+		#tüm itemleri getir
 		@portfolio_items = Portfolio.all
+		# portfolio.rb dosyasında tanımlanmış sorgu tiplerinden çağırmak
+		#@portfolio_items = Portfolio.angular
+		# diğer yol
+		#@portfolio_items = Portfolio.ruby_on_rails_portfolio_items
+
+	end
+	# farklı bir sayfaya yönledirme yapmak
+	def angular
+		@angular_portfolio_items = Portfolio.angular
 	end
 
 	def new
 		#atama yapar
 		@portfolio_item = Portfolio.new
+		3.times { @portfolio_item.technologies.build }
 	end
 
 	def edit
@@ -20,7 +31,7 @@ class PortfoliosController < ApplicationController
 	end
 
 	def create
-		@portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title,:subtitle, :body))
+		@portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title,:subtitle, :body, technologies_attributes: [:name]))
 		respond_to do |format|
 			if @portfolio_item.save
 				format.html{redirect_to portfolios_path, notice: 'port oluşturuldu'}
