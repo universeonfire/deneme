@@ -19,5 +19,6 @@
       <%= link_to "Login",  new_user_registration_path%>
     <%end %>
     <%= yield %>
+    <p> thanks for visiting me from <%=session[:source] %> </p>
   </body>
 </html>
