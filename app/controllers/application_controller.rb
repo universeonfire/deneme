@@ -3,9 +3,5 @@ class ApplicationController < ActionController::Base
 	#concern klasorunun içindeki DeviseWhitelist metodunu alır
 	include DeviseWhitelist
 	include SetSource
-	
-
-	
-	
-	
+	include CurrentUserConcern
 end
