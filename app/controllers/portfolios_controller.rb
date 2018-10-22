@@ -1,4 +1,6 @@
 class PortfoliosController < ApplicationController
+	before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
+
 	def index
 		#tüm itemleri getir
 		@portfolio_items = Portfolio.all
@@ -20,18 +22,14 @@ class PortfoliosController < ApplicationController
 	end
 
 	def edit
-		@portfolio_item = Portfolio.find(params[:id])
+
 	end
 
 	def show
-		@portfolio_item = Portfolio.find(params[:id])	
-		respond_to do |format|
-			format.html{render :show}
-		end
 	end
 
 	def create
-		@portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title,:subtitle, :body, technologies_attributes: [:name]))
+		@portfolio_item = Portfolio.new(portfolio_params)
 		respond_to do |format|
 			if @portfolio_item.save
 				format.html{redirect_to portfolios_path, notice: 'port oluşturuldu'}
@@ -42,9 +40,9 @@ class PortfoliosController < ApplicationController
 	end
 
 	def update
-		@portfolio_item = Portfolio.find(params[:id])
+		 
 		respond_to do |format|
-			if @portfolio_item.update(params.require(:portfolio).permit(:title,:subtitle, :body))
+			if @portfolio_item.update(portfolio_params)
 				format.html{redirect_to portfolios_path, notice: 'Port düzenlendi'}
 			else
 				format.html{render :edit}
@@ -53,11 +51,18 @@ class PortfoliosController < ApplicationController
 	end
 
 	def destroy
-	    @portfolio_item = Portfolio.find(params[:id])
+	    
 	    @portfolio_item.destroy
 	    respond_to do |format|
 	      format.html { redirect_to portfolios_url, notice: 'Port silindi.' }
 	    end
   	end
-	 
+
+	private
+		def set_portfolio
+			@portfolio_item = Portfolio.find(params[:id])
+		end
+		def portfolio_params
+			params.require(:portfolio).permit(:title,:subtitle, :body, technologies_attributes: [:name])
+		end		 
 end
