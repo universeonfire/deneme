@@ -2,6 +2,7 @@ class PortfoliosController < ApplicationController
 	before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
 
 	def index
+
 		#tüm itemleri getir
 		@portfolio_items = Portfolio.all
 		# portfolio.rb dosyasında tanımlanmış sorgu tiplerinden çağırmak
@@ -26,6 +27,7 @@ class PortfoliosController < ApplicationController
 	end
 
 	def show
+		@page_title = @portfolio_item.title
 	end
 
 	def create
