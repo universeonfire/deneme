@@ -15,17 +15,23 @@
     <p class="alert"><%= alert %></p>
      
     <!-- current_user.is_a?(User) application_controller dosyasında override ettğimiz current_user metodu devise classına ait user mı yoksa oluşturduğumuz OpenStruct classına ait guest_user mı onu belirlemek için kullanıyoruz current_user.name komutuyla çalışan metodun hangi sınıfa ait olduğunu bulabiliriz -->
-    <%if current_user.is_a?(User) %>
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Register", new_user_registration_path%>
-      <%= link_to "Login",  new_user_session_path%>
+    <!--
+    ******burdaki if döngüsü kaldırıldı çünkü view dosyalarının içinde saf ruby kodları yazmak iyi bir çalışma biçimi değildir
+    onun yerine application_helper dosyasının içinde oluşturulan login_helper metodu kullanıldı
+
+
+    <%#if current_user.is_a?(User) %>
+      <%#= link_to "Logout", destroy_user_session_path, method: :delete %>
+    <%# else %>
+      <%#= link_to "Register", new_user_registration_path%>
+      <%#= link_to "Login",  new_user_session_path%>
      
-    <%end %> 
+    <%#end %>  -->
+
     <%= yield %>
     <!-- views/shared/ dizinindeki _nav.html.erb dosyasını render ediyoruz -->
-     <%= render 'shared/nav' , location: 'top'%>
-
+    <%= render 'shared/nav' , location: 'top'%>
+    <%= login_helper %>
     <% if session[:source] %>
       <p> thanks for visiting me from <%=session[:source] %> </p>
     <%end%>
