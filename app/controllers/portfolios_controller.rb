@@ -24,6 +24,8 @@ class PortfoliosController < ApplicationController
 	end
 
 	def edit
+		# portfolios dizinine oluşturulan _form.html.erb partial dosyası edit yaparken kullanılan teknolojiler listesini getirmediği için burdaya bunu ekliyoruz
+		3.times { @portfolio_item.technologies.build }
 
 	end
 

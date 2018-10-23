@@ -24,7 +24,7 @@
     <%end %> 
     <%= yield %>
     <!-- views/shared/ dizinindeki _nav.html.erb dosyasını render ediyoruz -->
-     <%= render 'shared/nav' %>
+     <%= render 'shared/nav' , location: 'top'%>
 
     <% if session[:source] %>
       <p> thanks for visiting me from <%=session[:source] %> </p>

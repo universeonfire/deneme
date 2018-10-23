@@ -1,6 +1,8 @@
 <!-- partial dosyaları _ kullanılarak isimlendirilmelidir blogs/_form.html.erb dosyası da partial dır 
 ve her zaman app/views dizininde olmadılır biz burada shared klasörünü oluşturduk ve render edileceği zaman shared/nav yolunu kullanacağız-->
-<div> 
+<!-- location local değişkendir ilgili sayfalardan render edilirlen (render shared/nav , location = 'top') gibi bir komutla yollanır aynısı _form.html.erb dosyasındaki blog değişkeni için de geçerlidir o da (render form, blog: @blog) komutuyla yollanır burda örnek değişkenin yanındaki blog değişkeni _form partial ına ait local değişkendir -->
+<!-- class location  stylesheets dizinindeki ilgili css dosyasına gider o dosyasa tanımlı olan koda göre çalışır .top a {} ya da .bottom a {} gibi-->
+<div class = "<%= location %>"> 
   <div><%= link_to "Home" , root_path  %></div>
   <div><%= link_to "Blogs" , blogs_path %> </div>
   <div><%= link_to "Portfolios" , portfolios_path %> </div>
