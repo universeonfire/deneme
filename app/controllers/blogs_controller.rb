@@ -1,5 +1,7 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
+  #views/layouts/ dizinin içindeki layout dosyalarından hangisi kullanacağını tanımlıyoruz
+  layout "blog"
 
   # GET /blogs
   # GET /blogs.json
