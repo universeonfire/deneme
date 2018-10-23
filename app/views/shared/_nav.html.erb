@@ -1,0 +1,9 @@
+<!-- partial dosyaları _ kullanılarak isimlendirilmelidir blogs/_form.html.erb dosyası da partial dır 
+ve her zaman app/views dizininde olmadılır biz burada shared klasörünü oluşturduk ve render edileceği zaman shared/nav yolunu kullanacağız-->
+<div> 
+  <div><%= link_to "Home" , root_path  %></div>
+  <div><%= link_to "Blogs" , blogs_path %> </div>
+  <div><%= link_to "Portfolios" , portfolios_path %> </div>
+  <div><%= link_to "About Me" , about_path %> </div>
+  <div><%= link_to "Contact" , contact_path %> </div>
+</div> 
