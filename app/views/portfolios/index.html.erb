@@ -9,15 +9,8 @@ new_portfolio yazılırsa URL ekler http://localhost:3000/portfolios/new
 edit kodu yazarken id gerekir edit_portfolio_path(x)
 -->
 <%= link_to "Yeni Oluştur",new_portfolio_path %>
-
-<p></p>
-<% @portfolio_items.each do |x| %>
-	<h2><%= link_to x.title ,portfolio_show_path(x) %></h2>
-	<p><%= x.subtitle %></p>
-	<p><%= x.body  %></p>
-	<%= image_tag x.thumb_image unless x.thumb_image.nil? %>
-	<p><%= link_to 'Sil', portfolio_path(x), method: :delete, data: { confirm: 'Kayıt Silinecektir Emin Misiniz?' } %></p>
-	<%= link_to "Düzenle",edit_portfolio_path(x) %>
-
-	<p></p>
-<% end %>
+<!-- render @portfolio_items bu örnekte çalışmıyor çünkü partial dosyasının adının _portfolio.html.erb olması gerektiğini söylüyor o yüzden aşağıdaki gibi partial dosyasının adını elle yazmamız gerekli -->
+<%= render partial: "portfolio_item", collection: @portfolio_items %>
+	
+	 
+ 
