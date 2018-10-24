@@ -5,5 +5,5 @@ class Blog < ApplicationRecord
 	#validates_presence_of komutu ardından gelen parametreleri kontrol eder böylece nil olması durumunda hata verecek alanlara değer atamsı olmadan işlem yaptırmaz
 	validates_presence_of :title, :body
 	#belongs_to komutu bu tablonun ilişkili olduğu ana tabloyu belirtir
-	belongs_to :topic
+	belongs_to :topic , optional: true
 end
