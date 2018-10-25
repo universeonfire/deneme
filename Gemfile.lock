@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/universeonfire/evo_view_tool
+  revision: ab14b7ba55c7080d6c228c019b392c436dc4947a
+  specs:
+    evo_view_tool (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -206,6 +212,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   devise (~> 4.5)
+  evo_view_tool!
   friendly_id (~> 5.1.0)
   jbuilder (~> 2.5)
   jquery-rails
