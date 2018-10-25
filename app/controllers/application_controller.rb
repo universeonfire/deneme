@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 	include DefaultPageContent
 	before_action :set_copyright
 	def set_copyright
-		@copyright = DevcampViewTool::Renderer.copyright 'Evren Nari' , 'All Rights Reserved'
+		@copyright = EvoViewTool::Renderer.copyright 'Evren Nari' , 'All Rights Reserved'
 
 	end
 end
