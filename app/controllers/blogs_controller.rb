@@ -1,5 +1,7 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
+  #petergate kodları, show ve index e ulaşır ama destroy new create update ve edit. metodlarına ulaşamaz
+  access all: [:show, :index], user: {except: [:destroy,:new,:create,:update,:edit]}, site_admin: :all
   #views/layouts/ dizinin içindeki layout dosyalarından hangisi kullanacağını tanımlıyoruz
   layout "blog"
 
