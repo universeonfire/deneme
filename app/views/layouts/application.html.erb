@@ -14,28 +14,35 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-     <%= render 'shared/nav', location: 'top'%>
-    <!-- current_user.is_a?(User) application_controller dosyasında override ettğimiz current_user metodu devise classına ait user mı yoksa oluşturduğumuz OpenStruct classına ait guest_user mı onu belirlemek için kullanıyoruz current_user.name komutuyla çalışan metodun hangi sınıfa ait olduğunu bulabiliriz -->
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+           <%= render 'shared/application_nav', location: 'top'%>
+          <!-- current_user.is_a?(User) application_controller dosyasında override ettğimiz current_user metodu devise classına ait user mı yoksa oluşturduğumuz OpenStruct classına ait guest_user mı onu belirlemek için kullanıyoruz current_user.name komutuyla çalışan metodun hangi sınıfa ait olduğunu bulabiliriz -->
 
-    <!--
-    ******burdaki if döngüsü kaldırıldı çünkü view dosyalarının içinde saf ruby kodları yazmak iyi bir çalışma biçimi değildir
-    onun yerine application_helper dosyasının içinde oluşturulan login_helper metodu kullanıldı
+          <!--
+          ******burdaki if döngüsü kaldırıldı çünkü view dosyalarının içinde saf ruby kodları yazmak iyi bir çalışma biçimi değildir
+          onun yerine application_helper dosyasının içinde oluşturulan login_helper metodu kullanıldı
 
 
-    <%#if current_user.is_a?(User) %>
-      <%#= link_to "Logout", destroy_user_session_path, method: :delete %>
-    <%# else %>
-      <%#= link_to "Register", new_user_registration_path%>
-      <%#= link_to "Login",  new_user_session_path%>
-     
-    <%#end %>  -->
+          <%#if current_user.is_a?(User) %>
+            <%#= link_to "Logout", destroy_user_session_path, method: :delete %>
+          <%# else %>
+            <%#= link_to "Register", new_user_registration_path%>
+            <%#= link_to "Login",  new_user_session_path%>
+           
+          <%#end %>  -->
 
-    <%= login_helper %>
-    
-    <%= yield %>
-    <%= @copyright %>
-    <%= source_helper("application") %>
+          
+        </div>
+      </header>
+          <%= yield %>
+          <%= login_helper %>
+          
+          
+          <%= @copyright %>
+          <%= source_helper("application") %>
+
+    </div>
   </body>
 </html>
