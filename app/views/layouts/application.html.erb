@@ -36,11 +36,12 @@
           
         </div>
       </header>
+          
+          
           <%= yield %>
-          <%= login_helper %>
+          <%= render 'shared/application_footer', location: 'top'%>
+         
           
-          
-          <%= @copyright %>
           <%= source_helper("application") %>
 
     </div>
