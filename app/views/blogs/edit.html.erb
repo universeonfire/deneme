@@ -1,6 +1,27 @@
-<h1>Editing Blog</h1>
+<main role="main" class="container">
+ 
+<div class="col-md-8 blog-main">
+  <h3 class="pb-3 mb-4 font-italic border-bottom"> Editing 
+  	<%= @blog.title %>
+  </h3>
 
-<%= render 'form', blog: @blog %>
+</div>
+	<%= render 'form', blog: @blog %>
+   
+  <nav class="blog-pagination">
+  	<%= link_to 'Show', @blog %> |
+	<%= link_to 'Back', blogs_path %>
+     
+  </nav>
+ 
+</main>
 
-<%= link_to 'Show', @blog %> |
-<%= link_to 'Back', blogs_path %>
+
+
+
+
+ 
+
+
+
+
