@@ -31,6 +31,7 @@ class PortfoliosController < ApplicationController
 	end
 
 	def show
+		
 		@page_title = @portfolio_item.title
 	end
 
