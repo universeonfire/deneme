@@ -1,0 +1,10 @@
+
+<main role="main">
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading"><b>Portfolios</b></h1>
+        <%= link_to "Create a New Portfolio",new_portfolio_path  ,class: "btn btn-primary my-2"  if logged_in?(:site_admin) %>
+      </p>
+    </div>
+  </section>
+</main>

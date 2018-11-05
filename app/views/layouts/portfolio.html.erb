@@ -3,16 +3,22 @@
   <head>
     <title><%= @page_title %> </title>
     <%= csrf_meta_tags %>
-    <meta name = "keywords" content "<%= @seo_keywords %>" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
     <%= csp_meta_tag %>
+    <meta name = "keywords" content "<%= @seo_keywords %>" />
     <!--  stylesheet_link_tag  app/assets/stylesheets/ dizinin içindeki css dosyalarına erişir-->
     <%= stylesheet_link_tag    'portfolios', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
+  </head>
+     
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <header>
+      <%= render 'shared/portfolio_nav' %>
+    </header>
+     <%= render 'shared/portfolio_masthead' %>
      
     <!-- current_user.is_a?(User) application_controller dosyasında override ettğimiz current_user metodu devise classına ait user mı yoksa oluşturduğumuz OpenStruct classına ait guest_user mı onu belirlemek için kullanıyoruz current_user.name komutuyla çalışan metodun hangi sınıfa ait olduğunu bulabiliriz -->
     <!--
@@ -30,8 +36,8 @@
 
     <%= yield %>
     <!-- views/shared/ dizinindeki _nav.html.erb dosyasını render ediyoruz -->
-    <%= render 'shared/nav' , location: 'top'%>
-    <%= login_helper("form") %>
-    <%= source_helper("portfolio") %>
+     <%= render 'shared/portfolio_footer' %>
+     
+    
   </body>
 </html>
