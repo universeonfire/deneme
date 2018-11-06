@@ -6,7 +6,7 @@ class PortfoliosController < ApplicationController
 	def index
 
 		#tüm itemleri getir
-		@portfolio_items = Portfolio.all
+		@portfolio_items = Portfolio.by_pos
 		# portfolio.rb dosyasında tanımlanmış sorgu tiplerinden çağırmak
 		#@portfolio_items = Portfolio.angular
 		# diğer yol
