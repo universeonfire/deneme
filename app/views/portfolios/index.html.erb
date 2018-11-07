@@ -14,7 +14,7 @@ edit kodu yazarken id gerekir edit_portfolio_path(x)
 <div class="album py-5 bg-light">
     <div class="container">
     	<!-- portfolios.cofee dosyasının içindeki sort fonksiyonuna erişim-->
-        <div class="row sort">
+        <div class="row <%= "sort" if logged_in?(:site_admin)%>">
 			<%= render partial: "portfolio_item", collection: @portfolio_items %>
         </div>
     </div>
