@@ -13,6 +13,12 @@ class PortfoliosController < ApplicationController
 		#@portfolio_items = Portfolio.ruby_on_rails_portfolio_items
 
 	end
+	def sort
+		params[:order].each do |k,v|
+			Portfolio.find(v[:id]).update(position: value[:position])
+		end
+		render nothing: true
+	end
 	# farklı bir sayfaya yönledirme yapmak
 	def angular
 		@angular_portfolio_items = Portfolio.angular

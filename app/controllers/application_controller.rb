@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-	protect_from_forgery with: :exception
+	protect_from_forgery prepend: true , with: :exception 
 	#concern klasorunun içindeki DeviseWhitelist metodunu alır
 	include DeviseWhitelist
 	include SetSource
