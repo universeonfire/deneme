@@ -23,5 +23,8 @@ class Portfolio < ApplicationRecord
 		self.thumb_image ||= Placeholder.image_generator(height:'350',width:'150')
 
 	end
+	def self.by_pos
+		self.order("position ASC")
+	end
 
 end

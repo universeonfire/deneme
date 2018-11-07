@@ -6,12 +6,20 @@ class PortfoliosController < ApplicationController
 	def index
 
 		#tüm itemleri getir
-		@portfolio_items = Portfolio.all
+		@portfolio_items = Portfolio.by_pos
 		# portfolio.rb dosyasında tanımlanmış sorgu tiplerinden çağırmak
 		#@portfolio_items = Portfolio.angular
 		# diğer yol
 		#@portfolio_items = Portfolio.ruby_on_rails_portfolio_items
 
+	end
+	def sort
+		
+		params[:order].each do |k,v|
+			puts k,v
+			Portfolio.find(v[:id]).update(position: v[:position])
+		end
+		render nothing: true
 	end
 	# farklı bir sayfaya yönledirme yapmak
 	def angular
