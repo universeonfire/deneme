@@ -15,7 +15,9 @@ class PortfoliosController < ApplicationController
 	end
 	def sort
 		params[:order].each do |k,v|
-			Portfolio.find(v[:id]).update(position: value[:position])
+			puts k,v
+			Portfolio.find(v[:id]).update(position: v[:position])
+
 		end
 		render nothing: true
 	end
