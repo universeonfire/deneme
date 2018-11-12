@@ -29,11 +29,10 @@
   <p1> Technologies: </p1>
   <ul>
     <%= form.fields_for :technologies do |t| %>
-    <li> 
-      <%= t.label :name %>
-      <%= t.text_field :name ,class: "form-control"%>
-    </li>
+      <%= render 'technology_fields', f: t %>
     <%end%>
+    <%= link_to_add_association 'Add Tech', form, :technologies %>
+    
    </ul> 
   <div class="form-group">
     <%= form.submit "Submit" , class: 'btn btn-primary' %>

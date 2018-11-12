@@ -29,13 +29,11 @@ class PortfoliosController < ApplicationController
 	def new
 		#atama yapar
 		@portfolio_item = Portfolio.new
-		3.times { @portfolio_item.technologies.build }
+		
 	end
 
 	def edit
-		# portfolios dizinine oluşturulan _form.html.erb partial dosyası edit yaparken kullanılan teknolojiler listesini getirmediği için burdaya bunu ekliyoruz
-		3.times { @portfolio_item.technologies.build }
-
+		
 	end
 
 	def show
@@ -78,6 +76,6 @@ class PortfoliosController < ApplicationController
 			@portfolio_item = Portfolio.find(params[:id])
 		end
 		def portfolio_params
-			params.require(:portfolio).permit(:title,:subtitle, :body, :main_image, :thumb_image,technologies_attributes: [:name])
+			params.require(:portfolio).permit(:title,:subtitle, :body, :main_image, :thumb_image,technologies_attributes: [:id,:name,:_destroy])
 		end		 
 end
