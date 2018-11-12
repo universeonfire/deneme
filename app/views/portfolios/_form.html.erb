@@ -1,5 +1,12 @@
 
 <%= form_for(@portfolio_item) do |form| %>
+<% if @portfolio_item.errors.any? %>
+    
+      <% @portfolio_item.errors.full_messages.each do |message| %>
+         <%= js add_gritter(message, :title => "Evren Nari", sticky: false) %>
+      <% end %>
+      
+  <% end %>
 
   <div class="form-group">
     <%= form.label :title %>
