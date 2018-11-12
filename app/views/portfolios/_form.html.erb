@@ -3,7 +3,7 @@
 <% if @portfolio_item.errors.any? %>
     
       <% @portfolio_item.errors.full_messages.each do |message| %>
-         <%= js add_gritter(message, :title => "Evren Nari", sticky: false) %>
+          <%= alert_gen message %>
       <% end %>
       
   <% end %>

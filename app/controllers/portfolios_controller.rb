@@ -45,7 +45,7 @@ class PortfoliosController < ApplicationController
 		@portfolio_item = Portfolio.new(portfolio_params)
 		respond_to do |format|
 			if @portfolio_item.save
-				format.html{redirect_to portfolios_path, notice: 'port oluşturuldu'}
+				format.html{redirect_to portfolios_path, notice: 'Porfolio was successfully created.' }
 			else
 				format.html{render :new}
 			end
@@ -56,7 +56,7 @@ class PortfoliosController < ApplicationController
 		 
 		respond_to do |format|
 			if @portfolio_item.update(portfolio_params)
-				format.html{redirect_to portfolios_path, notice: 'Port düzenlendi'}
+				format.html{redirect_to portfolios_path, notice: 'Portfolio was successfully updated.' }
 			else
 				format.html{render :edit}
 			end
@@ -67,7 +67,7 @@ class PortfoliosController < ApplicationController
 	    
 	    @portfolio_item.destroy
 	    respond_to do |format|
-	      format.html { redirect_to portfolios_url, notice: 'Port silindi.' }
+	      format.html { redirect_to portfolios_url, notice: 'Portfolio was successfully destroyed.'  }
 	    end
   	end
 
