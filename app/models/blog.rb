@@ -6,4 +6,5 @@ class Blog < ApplicationRecord
 	validates_presence_of :title, :body
 	#belongs_to komutu bu tablonun ilişkili olduğu ana tabloyu belirtir
 	belongs_to :topic , optional: true
+	has_many :comments ,dependent: :destroy
 end

@@ -21,4 +21,5 @@
 //= require bootstrap-sprockets
 //= require cocoon
 //= require gritter
+//= require redis
 
