@@ -3,6 +3,7 @@
 <div class="col-md-8 blog-main">
   <h3 class="pb-3 mb-4 font-italic border-bottom">
   	<%= @blog.title %>
+   
   </h3>
 
 </div>
@@ -14,7 +15,9 @@
   </nav>
 
   <%= render 'comments/comment_form' %>
-  <div id="comments" data-blog-id="<% @blog.id %>">
+   
+  <div id="comments" data-blog-id= "<%= @blog.id %>" > 
+   
       <%= render @blog.comments  %>
   </div>
   
