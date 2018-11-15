@@ -7,4 +7,7 @@ class Blog < ApplicationRecord
 	#belongs_to komutu bu tablonun ilişkili olduğu ana tabloyu belirtir
 	belongs_to :topic , optional: true
 	has_many :comments ,dependent: :destroy
+	def self.recent
+		order("created_at DESC")
+	end
 end
