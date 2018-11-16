@@ -8,7 +8,7 @@
     <!--burada eklediğimiz @seo_keywords arama motoru için eklenen kelimeleri içerir -->
     <meta name = "keywords" content "<%= @seo_keywords %>" />
     <%= csp_meta_tag %>
-
+    <%= favicon_link_tag 'favicons/favicon.ico' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -45,7 +45,6 @@
           <%= alerts %>
          
           
-          <%= source_helper("application") %>
 
     </div>
   </body>

@@ -5,6 +5,8 @@
       <h1 class="jumbotron-heading"><b>Portfolios</b></h1>
         <%= link_to "Create a New Portfolio",new_portfolio_path  ,class: "btn btn-primary my-2"  if logged_in?(:site_admin) %>
       </p>
+
+      <%= source_helper("alert alert-info") %>
     </div>
   </section>
 </main>
