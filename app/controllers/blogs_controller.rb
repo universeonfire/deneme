@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
+  before_action :set_topics, except: [:update,:create,:destroy,:toggle_status]
   #petergate kodları, show ve index e ulaşır ama destroy new create update ve edit. metodlarına ulaşamaz
   access all: [:show, :index], user: {except: [:destroy,:new,:create,:update,:edit]}, site_admin: :all
   #views/layouts/ dizinin içindeki layout dosyalarından hangisi kullanacağını tanımlıyoruz
@@ -101,5 +102,9 @@ class BlogsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
       params.require(:blog).permit(:title, :body,:topic_id)
+    end
+
+    def set_topics
+      @stopics = Topic.with_blogs
     end
 end

@@ -13,7 +13,7 @@ tr>
 
 <main role="main" class="container">
 	<div class="row">	 
-		<div class="blog-post">
+		<div class="col-md-12 blog-post">
 			<h2 class="blog-post-title"><%= blog.title.upcase %></h2>
 			<p class="blog-post-meta">Published <%= distance_of_time_in_words(blog.created_at,Time.now) %> ago</p>
 			<p> <%= truncate blog.body.squish %> </p>
