@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 2018_11_13_074352) do
     t.integer "percent_utilized"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "badge"
   end
 
   create_table "technologies", force: :cascade do |t|
