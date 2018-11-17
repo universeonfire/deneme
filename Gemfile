@@ -73,3 +73,4 @@ gem 'twitter', '~> 6.2'
 gem 'redis', '~> 4.0', '>= 4.0.3'
 gem 'redcarpet', '~> 3.4'
 gem 'coderay', '~> 1.1', '>= 1.1.2'
+gem "rack", ">= 2.0.6"

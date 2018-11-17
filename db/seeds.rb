@@ -42,7 +42,7 @@ end
 		debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. 
 		Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus 
 		maiores alias consequatur aut perferendis doloribus asperiores repellat.",	
-		topic_id: 3
+		topic_id: 1
 	)
 end
 5.times do |x|
