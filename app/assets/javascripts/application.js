@@ -21,6 +21,8 @@
 
 //= require cocoon
 //= require gritter
+//= require lib/typed
+//= require typed-imp
 //= require bootstrap-sprockets
 
 
