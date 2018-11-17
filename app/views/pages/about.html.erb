@@ -4,6 +4,19 @@
 		<!--img src = "https://www.wannart.com/wp-content/uploads/2017/12/agent-smith.jpg" width="600"-->
 		<!--assets/images klasorünün içinde -->
 		<%= image_tag "agent-smith.jpg" , width: 600 , alt: "agent-smith"%>
+		<div class= "skills">
+			<% @skills.each do |s| %>
+				<h4> <%= s.title %> </h4>
+				<div class = "progress">
+					<div class="progress-bar progress-bar-striped bg-alert" role= "progressbar" aria-valuenow= "<%= s.percent_utilized %>" aria-valuemax = "100" 
+						style= "width: <%=s.percent_utilized  %>%">
+				
+					</div>
+					
+				</div>
+			<% end %>
+			
+		</div>
 	</div>
 	<div class="col-md-4">
 		<p>komikim<p>

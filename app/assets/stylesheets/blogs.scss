@@ -5,6 +5,7 @@
 /* stylelint-disable selector-list-comma-newline-after */
 
 .blog-header {
+  font-family: 'Noto Serif', serif;
   line-height: 1;
   border-bottom: 1px solid #e5e5e5;
 }
@@ -52,6 +53,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-scroller .nav-link {
+  font-family: 'Noto Serif', serif;
   padding-top: .75rem;
   padding-bottom: .75rem;
   font-size: .875rem;
@@ -140,4 +142,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 .comment-name {
   font-weight: 800;
+}
+.blogact {
+  font-size: 1.5em;
+  margin: 0px 10px 0 px 10px
 }

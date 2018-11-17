@@ -1,13 +1,14 @@
 <main role="main" class="container">
- 
+ <%= render "shared/breadcrumb" %>
 <div class="col-md-8 blog-main">
   <h3 class="pb-3 mb-4 font-italic border-bottom">
   	<%= @blog.title %>
    
   </h3>
 
+  <p><%= @blog.topic.title %></p>
 </div>
-	<p><%= @blog.body %></p>
+	<p><%= markdown @blog.body %></p>
    
   <nav class="blog-pagination">
     <%= link_to 'Edit', edit_blog_path(@blog) if logged_in?(:site_admin) %> |

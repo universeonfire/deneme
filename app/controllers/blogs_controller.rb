@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
+  before_action :set_topics, except: [:update,:create,:destroy,:toggle_status]
   #petergate kodları, show ve index e ulaşır ama destroy new create update ve edit. metodlarına ulaşamaz
   access all: [:show, :index], user: {except: [:destroy,:new,:create,:update,:edit]}, site_admin: :all
   #views/layouts/ dizinin içindeki layout dosyalarından hangisi kullanacağını tanımlıyoruz
@@ -8,17 +9,27 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.page(params[:page]).per(5)
+
+    if logged_in?(:site_admin)
+      @blogs = Blog.recent.page(params[:page]).per(5)
+    else
+      @blogs = Blog.published.recent.page(params[:page]).per(5)
+    end
+     
     @page_title = "My Blog Page"
   end
 
   # GET /blogs/1
   # GET /blogs/1.json
   def show
-    @blog = Blog.includes(:comments).friendly.find(params[:id])
-    @page_title = @blog.title
-    @seo_keywords = @blog.body
-    @comment = Comment.new
+    if logged_in?(:site_admin) || @blog.published?
+      @blog = Blog.includes(:comments).friendly.find(params[:id])
+      @page_title = @blog.title
+      @seo_keywords = @blog.body
+      @comment = Comment.new
+    else 
+      redirect_to blogs_path, notice: "You are not authorized to access this page"
+    end
   end
 
   # GET /blogs/new
@@ -90,6 +101,10 @@ class BlogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
-      params.require(:blog).permit(:title, :body)
+      params.require(:blog).permit(:title, :body,:topic_id, :status)
+    end
+
+    def set_topics
+      @stopics = Topic.with_blogs
     end
 end
